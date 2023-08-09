@@ -1,3 +1,4 @@
+
 import random
 import math
 
@@ -8,3 +9,4 @@ def main(newGame):
         bet = input("What number will the dice roll?\nYou can also bet higher or lower by using < or > (lower than x or higher than x) ")
         wager = input("What amount of money would you like to wager? ")
         wager = int(wager)
+        
