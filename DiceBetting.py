@@ -1,12 +1,17 @@
 import random
+import os
 
 accountMoney = 100.0
 
-def newGame():
+def clear(): os.system('cls') #on Windows System
+clear()
+
+def newGame(accountMoney):
     while True:
+        #Todo: sanitize input to account for user error such as guessing an invalid number.
         bet = input("What number will the dice roll?\nYou can also bet higher or lower by using < or > (lower than x or higher than x) ")
         wager = input("What amount of money would you like to wager? ")
-        wager = int(wager)
+        wager = float(wager)
 
         diceRoll = random.randint(1, 6)
 
@@ -39,11 +44,18 @@ def newGame():
 
         if winnings > 0:
             print(f"Congratulations! You won ${winnings}")
+            updateAccountMoney = accountMoney + winnings
         else:
-            print(f"Sorry, you lost ${abs(winnings)}")
+            updateAccountMoney = accountMoney - winnings
 
+            print(f"Sorry, you lost ${abs(winnings)}")
+            print(f"Total account balance: ${updateAccountMoney}")
+
+            
+clear()
+input("Press Enter for a new game.")
 # Call the newGame function to start the game
-newGame()
+newGame(accountMoney)
 
 
 
